@@ -1,0 +1,18 @@
+.card {
+  cursor: pointer;
+  border: 1mm ridge white;
+  background-color: aliceblue;
+}
+
+.card:hover {
+  border: 1mm ridge rgba(170, 50, 220, .6);
+}
+
+.modal-body {
+  background-color: rgb(236, 202, 157);
+}
+
+.modal-header {
+  background-color: dimgrey;
+  color: white;
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "imageUrl": "/assets/characters-img/blanka.gif"
+  },
+  {
+    "id": 2,
+    "imageUrl": "/assets/characters-img/deejay.gif"
+  },
+  {
+    "id": 3,
+    "imageUrl": "/assets/characters-img/guile.gif"
+  },
+  {
+    "id": 4,
+    "imageUrl": "/assets/characters-img/ryu.gif"
+  },
+  {
+    "id": 5,
+    "imageUrl": "/assets/characters-img/vega.gif"
+  },
+  {
+    "id": 6,
+    "imageUrl": "/assets/characters-img/zangief.gif"
+  }
+]

@@ -1,0 +1,50 @@
+.card-img {
+  height: 250px;
+  width: 90px;
+}
+
+.card {
+  height: 300px;
+  width: 150px;
+  cursor: pointer;
+}
+
+.container {
+  width: 100%;
+}
+
+.align-sp-management {
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+}
+
+.name {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.skill-points {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.fight-button {
+  font-size: 50px;
+  height: 100px;
+  width: 400px;
+}
+
+.text-size {
+  font-size: 70px;
+}
+
+.add-box {
+  height: 10rem;
+  width: 10rem;
+  font-size: 10rem;
+}

@@ -1,0 +1,19 @@
+<div class="mb-5 mt-4">
+  <h1 class="text-center text-size">STREET FIGHTER ROUND BATTLE</h1>
+</div>
+
+<div class="container">
+  <div class="row ml-4">
+        <div *ngFor="let character of characters" (click)="displayCharacter(character)"
+             [ngClass]="{'bg-success': characterHasBeenCreate, 'bg-danger': !characterHasBeenCreate}" class="card mr-4 mb-2 col-lg-2 col-sm-3">
+          <img src="{{character.imageUrl}}" class="card-img mx-auto mt-3" alt="character"/>
+        </div>
+        <app-character-choice (newCharacterEvent)="chooseSkinCharacter($event)"></app-character-choice>
+  </div>
+</div>
+
+<div class="container">
+  <hr/>
+</div>
+
+<app-skill-attribution [character]="selectCharacter" (hasBeenCreatedEmitter)="characterHasBeenCreated($event)"></app-skill-attribution>
