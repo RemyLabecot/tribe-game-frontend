@@ -53,11 +53,12 @@
 
   <div class="container mt-4">
     <button (click)="createCharacter()" mat-raised-button color="primary">Assign skill points</button>
-    <p>{{errorMessage}}</p>
+    <p *ngIf="errorMessage">{{errorMessage}}</p>
   </div>
 
   <div>
-    <button [disabled]="character.hasBeenCreated" mat-raised-button color="warn" class="fight-button mt-4">
+    <button [routerLink]="['/fight-lobby']" [disabled]="character.hasBeenCreated" mat-raised-button color="warn"
+            class="fight-button mt-4">
       <mat-icon class="mr-3">fitness_center</mat-icon>
       Let's fight
       <mat-icon class="ml-3">fitness_center</mat-icon>

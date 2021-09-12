@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable, throwError} from 'rxjs';
-import {catchError} from 'rxjs/operators';
-import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {Player} from "../../model/player";
 
@@ -9,9 +8,15 @@ import {Player} from "../../model/player";
   providedIn: 'root'
 })
 export class AuthService {
+
   endpoint: string = 'http://localhost:8080/api';
   private currentPlayerSubject = new BehaviorSubject<Player>(new Player());
   public currentPlayer: Observable<Player> = new Observable();
+
+  headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${this.getToken()}`
+  });
 
   constructor(
     private http: HttpClient,
@@ -27,11 +32,8 @@ export class AuthService {
   }
 
   signUp(player: Player): Observable<any> {
-    let api = `${this.endpoint}/players/`;
-    return this.http.post(api, player)
-      .pipe(
-        catchError(this.handleError)
-      )
+    let api = `${this.endpoint}/players`;
+    return this.http.post(api, player);
   }
 
   signIn(player: Player) {
@@ -45,11 +47,8 @@ export class AuthService {
   }
 
   private findPlayerByEmail(email: string) {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.getToken()}`
-    });
-    return this.http.get<Player>(`${this.endpoint}/players/${email}`, {headers: headers})
+
+    return this.http.get<Player>(`${this.endpoint}/players/${email}`, {headers: this.headers})
       .subscribe(player => {
         this.currentPlayerSubject.next(player);
         localStorage.setItem('currentPlayer', JSON.stringify(player));
@@ -64,16 +63,5 @@ export class AuthService {
   get isLoggedIn(): boolean {
     let authToken = this.getToken();
     return (authToken !== null);
-  }
-
-  handleError(error: HttpErrorResponse) {
-    let msg = '';
-    if (error.error instanceof ErrorEvent) {
-      msg = error.error.message;
-      window.alert(error);
-    } else {
-      window.alert(error.error.message);
-    }
-    return throwError(msg);
   }
 }

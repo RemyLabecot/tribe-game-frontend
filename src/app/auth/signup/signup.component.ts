@@ -28,9 +28,12 @@ export class SignupComponent implements OnInit {
   }
 
   registerPlayer() {
-    this.authService.signUp(this.signupForm.value).subscribe((res) => {
-      this.signupForm.reset();
-      this.router.navigate(['login']);
-    }, error => this.router.navigate(['/error']))
+    this.authService.signUp(this.signupForm.value)
+      .subscribe((res) => {
+        this.signupForm.reset();
+        this.router.navigate(['login']);
+      }, error => {
+        window.alert(error.error.message);
+      });
   }
 }

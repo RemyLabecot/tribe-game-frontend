@@ -15,13 +15,15 @@ import {CharacterService} from "./service/character.service";
 import {CharacterChoiceComponent} from './character-management/character-choice/character-choice.component';
 import {SkillAttributionComponent} from './character-management/skill-attribution/skill-attribution.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {FightLobbyComponent} from './fight-management/fight-lobby/fight-lobby.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CharacterManagementComponent,
     CharacterChoiceComponent,
-    SkillAttributionComponent
+    SkillAttributionComponent,
+    FightLobbyComponent
   ],
   imports: [
     BrowserModule,
