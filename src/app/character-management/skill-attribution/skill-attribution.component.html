@@ -57,7 +57,7 @@
   </div>
 
   <div>
-    <button [routerLink]="['/fight-lobby']" [disabled]="character.hasBeenCreated" mat-raised-button color="warn"
+    <button  (click)="fightTrigger()" [disabled]="character.hasBeenCreated" mat-raised-button color="warn"
             class="fight-button mt-4">
       <mat-icon class="mr-3">fitness_center</mat-icon>
       Let's fight

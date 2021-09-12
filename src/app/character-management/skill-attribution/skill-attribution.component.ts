@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Character} from "../../model/character";
 import {CharacterService} from "../../service/character.service";
 import {AuthService} from "../../auth/shared/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-skill-attribution',
@@ -14,7 +15,7 @@ export class SkillAttributionComponent implements OnInit {
   errorMessage: string = "";
 
 
-  constructor(private characterService: CharacterService, private authService: AuthService) {
+  constructor(private characterService: CharacterService, private authService: AuthService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -28,5 +29,9 @@ export class SkillAttributionComponent implements OnInit {
       }, error => {
         this.errorMessage = error.error.message
       });
+  }
+
+  fightTrigger() {
+    this.router.navigateByUrl('/fight-lobby', {state: {character: this.character}})
   }
 }

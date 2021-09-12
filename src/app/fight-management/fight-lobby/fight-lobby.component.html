@@ -1,1 +1,17 @@
-<p>fight-lobby works!</p>
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="card mr-4 mb-2 col-lg-2 col-sm-3 bg-success">
+      <img src="{{player_1_character.imageUrl}}" class="card-img mx-auto mt-3" alt="player1"/>
+      <p class="skill-pts-style marg-t">Attack : {{player_1_character.attack}}</p>
+      <p class="skill-pts-style">Defense : {{player_1_character.defense}}</p>
+      <p class="skill-pts-style">Magik : {{player_1_character.magik}}</p>
+      <p class="skill-pts-style">Health : {{player_1_character.health}}</p>
+    </div>
+    <img src="/assets/VS.png"/>
+    <div class="card mr-4 mb-2 col-lg-2 col-sm-3 bg-success">
+      <img src="/assets/characters-img/blanka.gif" class="card-img mx-auto mt-3 right-player" alt="player2"/>
+    </div>
+  </div>
+
+</div>
+<div class="row justify-content-center combat-log"><mat-icon class="mr-3">gavel</mat-icon><p>Player 1 attack Player 2 with xxx damages with xxx bonus from Magik</p><mat-icon class="ml-3">gavel</mat-icon></div>

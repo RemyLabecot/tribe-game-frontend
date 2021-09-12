@@ -1,0 +1,16 @@
+.right-player {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.skill-pts-style {
+  font-weight: bold;
+}
+
+.marg-t {
+  margin-top: 60px;
+}
+
+.combat-log {
+  font-weight: bolder;
+}
