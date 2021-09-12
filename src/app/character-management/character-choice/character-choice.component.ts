@@ -1,7 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {HttpClient} from "@angular/common/http";
-import {Character} from "../model/character";
+import {Character} from "../../model/character";
 
 class CharacterSkins {
   id: string;
@@ -24,7 +24,8 @@ export class CharacterChoiceComponent implements OnInit {
   skinsCharacter: CharacterSkins[] = [];
   @Output() newCharacterEvent = new EventEmitter<Character>();
 
-  constructor(private modalService: NgbModal, private httpClient: HttpClient) { }
+  constructor(private modalService: NgbModal, private httpClient: HttpClient) {
+  }
 
   ngOnInit(): void {
     const _jsonUrl = 'assets/characters-img/characters.json';
@@ -39,6 +40,7 @@ export class CharacterChoiceComponent implements OnInit {
 
   chooseCharacter(skin: string) {
     const character: Character = new Character(undefined, skin, 1, 12, 10, 0, 0, 0, 0);
+    character.hasBeenCreated = true;
     this.newCharacterEvent.emit(character);
     this.modalService.dismissAll();
   }

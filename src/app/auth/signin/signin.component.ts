@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {AuthService} from "../shared/auth.service";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-signin',
@@ -22,7 +21,8 @@ export class SigninComponent implements OnInit {
     })
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+  }
 
   loginPlayer() {
     this.authService.signIn(this.signinForm.value);

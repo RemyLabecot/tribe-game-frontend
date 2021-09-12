@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CharacterManagementComponent } from './character-management.component';
+import {CharacterManagementComponent} from './character-management.component';
 
 describe('CharacterManagementComponent', () => {
   let component: CharacterManagementComponent;
@@ -8,9 +8,9 @@ describe('CharacterManagementComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CharacterManagementComponent ]
+      declarations: [CharacterManagementComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

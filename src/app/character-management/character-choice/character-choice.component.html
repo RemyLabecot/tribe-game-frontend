@@ -17,7 +17,8 @@
   </div>
   <div class="modal-body">
     <div class="row justify-content-center">
-      <div (click)="chooseCharacter(skin.imageUrl)" class="card mr-4 mb-2 col-lg-2 col-sm-3" *ngFor="let skin of skinsCharacter">
+      <div (click)="chooseCharacter(skin.imageUrl)" class="card mr-4 mb-2 col-lg-2 col-sm-3"
+           *ngFor="let skin of skinsCharacter">
         <img class="card-img mx-auto mt-3" alt="character"
              [src]="skin.imageUrl"/>
       </div>

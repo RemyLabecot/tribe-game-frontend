@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable, throwError} from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Router } from '@angular/router';
+import {catchError} from 'rxjs/operators';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import {Router} from '@angular/router';
 import {Player} from "../../model/player";
 
 @Injectable({
@@ -37,22 +37,24 @@ export class AuthService {
   signIn(player: Player) {
     return this.http.post<any>(`${this.endpoint}/players/login`, player)
       .subscribe((res: any) => {
-          localStorage.setItem('access_token', res.access_token);
-          this.findPlayerByEmail(player.email);
-      }, error => {console.log(error.error.message)});
+        localStorage.setItem('access_token', res.access_token);
+        this.findPlayerByEmail(player.email);
+      }, error => {
+        window.alert(error.error.message)
+      });
   }
 
-  private findPlayerByEmail(email: string){
+  private findPlayerByEmail(email: string) {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.getToken()}`
     });
     return this.http.get<Player>(`${this.endpoint}/players/${email}`, {headers: headers})
       .subscribe(player => {
-      this.currentPlayerSubject.next(player);
-      localStorage.setItem('currentPlayer', JSON.stringify(player));
-      this.router.navigate(['character-creation']);
-    });
+        this.currentPlayerSubject.next(player);
+        localStorage.setItem('currentPlayer', JSON.stringify(player));
+        this.router.navigate(['character-creation']);
+      });
   }
 
   getToken() {
@@ -64,21 +66,13 @@ export class AuthService {
     return (authToken !== null);
   }
 
-  doLogout() {
-    let removeToken = localStorage.removeItem('access_token');
-    if (removeToken == null) {
-      this.router.navigate(['login']);
-    }
-  }
-
   handleError(error: HttpErrorResponse) {
     let msg = '';
     if (error.error instanceof ErrorEvent) {
-      // client-side error
       msg = error.error.message;
+      window.alert(error);
     } else {
-      // server-side error
-      msg = `Error Code: ${error.status}\nMessage: ${error.message}`;
+      window.alert(error.error.message);
     }
     return throwError(msg);
   }

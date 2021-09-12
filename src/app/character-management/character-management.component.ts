@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {Character} from "../model/character";
 import {CharacterService} from "../service/character.service";
 import {AuthService} from "../auth/shared/auth.service";
-import {Player} from "../model/player";
 
 @Component({
   selector: 'app-character-management',
@@ -12,8 +11,7 @@ import {Player} from "../model/player";
 export class CharacterManagementComponent implements OnInit {
 
   characters: Character[] = [];
-  selectCharacter: Character = new Character(undefined,"", 1, 12, 10, 0, 0, 0, 0);
-  characterHasBeenCreate: boolean = false;
+  selectCharacter: Character = new Character(undefined, "", 1, 12, 10, 0, 0, 0, 0);
 
   constructor(private characterService: CharacterService, private authService: AuthService) {
   }
@@ -34,9 +32,5 @@ export class CharacterManagementComponent implements OnInit {
 
   displayCharacter(character: Character) {
     this.selectCharacter = character;
-  }
-
-  characterHasBeenCreated(hasBeenCreated: boolean) {
-    this.characterHasBeenCreate = hasBeenCreated;
   }
 }

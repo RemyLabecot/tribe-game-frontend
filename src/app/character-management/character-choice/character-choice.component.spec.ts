@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CharacterChoiceComponent } from './character-choice.component';
+import {CharacterChoiceComponent} from './character-choice.component';
 
 describe('CharacterChoiceComponent', () => {
   let component: CharacterChoiceComponent;
@@ -8,9 +8,9 @@ describe('CharacterChoiceComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CharacterChoiceComponent ]
+      declarations: [CharacterChoiceComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

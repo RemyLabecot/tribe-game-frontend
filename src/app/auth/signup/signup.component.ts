@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {AuthService} from "../shared/auth.service";
@@ -29,8 +29,8 @@ export class SignupComponent implements OnInit {
 
   registerPlayer() {
     this.authService.signUp(this.signupForm.value).subscribe((res) => {
-        this.signupForm.reset();
-        this.router.navigate(['login']);
+      this.signupForm.reset();
+      this.router.navigate(['login']);
     }, error => this.router.navigate(['/error']))
   }
 }

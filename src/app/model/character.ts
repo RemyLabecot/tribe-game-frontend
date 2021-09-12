@@ -9,9 +9,9 @@ export class Character {
   defense: number;
   magik: number;
   playerId: number;
+  hasBeenCreated: boolean = true;
 
-
-  constructor(id: number | undefined, imageUrl: string, level:number, skillPoints: number, health: number, attack: number, defense: number, magik: number, playerId: number) {
+  constructor(id: number | undefined, imageUrl: string, level: number, skillPoints: number, health: number, attack: number, defense: number, magik: number, playerId: number) {
     this.id = id;
     this.imageUrl = imageUrl;
     this.level = level;
@@ -28,63 +28,63 @@ export class Character {
   }
 
   incrementHealth() {
-    if(this.skillPoints > 0) {
+    if (this.skillPoints > 0) {
       this.health++;
       this.decrementSkillPoint();
     }
   }
 
-  decrementHealth(){
-    if(this.health > 10) {
+  decrementHealth() {
+    if (this.health > 10) {
       this.health--;
       this.incrementSkillPoint();
     }
   }
 
   incrementAttack() {
-    if(this.hasEnoughSkillPoints(this.attack)) {
+    if (this.hasEnoughSkillPoints(this.attack)) {
       this.enleverLesPointsDeSkill(this.attack);
       this.attack++;
     }
   }
 
-  decrementAttack(){
-    if(this.attack > 0) {
+  decrementAttack() {
+    if (this.attack > 0) {
       this.attack--;
       this.rajouterLesPointsDeSkill(this.attack);
     }
   }
 
   incrementDefense() {
-    if(this.hasEnoughSkillPoints(this.defense)) {
+    if (this.hasEnoughSkillPoints(this.defense)) {
       this.enleverLesPointsDeSkill(this.defense);
       this.defense++;
     }
   }
 
-  decrementDefense(){
-    if(this.defense > 0) {
+  decrementDefense() {
+    if (this.defense > 0) {
       this.defense--;
       this.rajouterLesPointsDeSkill(this.defense);
     }
   }
 
   incrementMagik() {
-    if(this.hasEnoughSkillPoints(this.magik)) {
+    if (this.hasEnoughSkillPoints(this.magik)) {
       this.enleverLesPointsDeSkill(this.magik);
       this.magik++;
     }
   }
 
-  decrementMagik(){
-    if(this.magik > 0) {
+  decrementMagik() {
+    if (this.magik > 0) {
       this.magik--;
       this.rajouterLesPointsDeSkill(this.magik);
     }
   }
 
   hasEnoughSkillPoints(skill: number): boolean {
-    if(skill === 0) return true;
+    if (skill === 0) return true;
     const cost = this.costOfSkillIncrement(skill);
     return cost <= this.skillPoints;
   }
@@ -102,7 +102,7 @@ export class Character {
   }
 
   decrementSkillPoint() {
-    if(this.skillPoints > 0) {
+    if (this.skillPoints > 0) {
       this.skillPoints--;
     }
   }
