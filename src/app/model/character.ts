@@ -84,7 +84,7 @@ export class Character {
   }
 
   hasEnoughSkillPoints(skill: number): boolean {
-    if (skill === 0) return true;
+    if (skill === 0 && this.skillPoints > 0) return true;
     const cost = this.costOfSkillIncrement(skill);
     return cost <= this.skillPoints;
   }
@@ -108,6 +108,7 @@ export class Character {
   }
 
   costOfSkillIncrement(skill: number): number {
+    if(skill === 0) return 1;
     return Math.ceil(skill / 5);
   }
 }
